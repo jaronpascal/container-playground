@@ -1,0 +1,33 @@
+version: '3'
+services:
+
+  color1:
+    build: ./containers/color
+    ports:
+      - "9501:80"
+    networks: 
+      - web
+
+  color2:
+    build: ./containers/color
+    ports:
+      - "9502:80"
+    networks: 
+      - web
+
+  mixer:
+    build: ./containers/mixer
+    ports:
+      - "9500:80"
+    depends_on:
+      - color1
+      - color2
+    environment:
+      COLOR_1: 'http://color1'
+      COLOR_2: 'http://color2'
+    networks: 
+      - web      
+
+networks:
+  web:
+    driver: "bridge"      

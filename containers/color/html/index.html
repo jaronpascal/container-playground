@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Colors</title>
+    <style>
+    html, body
+    {
+      height: 100%;
+      width: 100%;
+      background-color: <%= color %>;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    a{
+      flex: 0 0 200px;
+      padding: 20px;
+      color: white;
+      background: #3498db;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+  </head>
+  <body>
+    <a href="?n=1">Generate color</a>
+  </body>
+</html>
