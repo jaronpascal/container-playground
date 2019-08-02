@@ -50,6 +50,15 @@ jobs:
 
       # run tests!
       - run: npm test
+      - run:
+          command: |
+            docker build --rm=false -t $REGISTRY_HOST/tests/mixer .
+      - run:
+          command: |
+            docker login --username $DOCKER_USER --password $DOCKER_PASS $REGISTRY_HOST
+      - run:
+          command: |
+            docker push $REGISTRY_HOST/tests/mixer:1.0
 
 workflows:
   version: 2
