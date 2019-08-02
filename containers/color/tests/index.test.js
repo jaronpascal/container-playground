@@ -1,12 +1,13 @@
 const request = require('supertest');
 const express = require('express');
+const ejs = require('ejs');
 const router = require('../router.js');
 
 const initServer = () => {
   const app = express();
 
   app.set('views', `${__dirname}`);
-  app.engine('html', require('ejs').renderFile);
+  app.engine('html', ejs.renderFile);
 
   app.set('view engine', 'html');
 
