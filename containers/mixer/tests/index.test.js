@@ -1,14 +1,14 @@
 const request = require('supertest');
 const moxios = require('moxios');
 const express = require('express');
-const path = require('path');
+const ejs = require('ejs');
 const router = require('../router.js');
 
 const initServer = () => {
   const app = express();
 
   app.set('views', `${__dirname}`);
-  app.engine('html', require('ejs').renderFile);
+  app.engine('html', ejs.renderFile);
 
   app.set('view engine', 'html');
 
@@ -42,13 +42,13 @@ describe('GET /', () => {
   });
   test('should return a black background when both input are not reachable', async () => {
     moxios.wait(() => {
-      let request = moxios.requests.mostRecent();
-      request.respondWith({
+      let req = moxios.requests.mostRecent();
+      req.respondWith({
         status: 404,
       });
       moxios.wait(() => {
-        request = moxios.requests.mostRecent();
-        request.respondWith({
+        req = moxios.requests.mostRecent();
+        req.respondWith({
           status: 404,
         });
       });
@@ -65,13 +65,13 @@ describe('GET /', () => {
   test('should return a background color when one of the output is not reachable', async () => {
     const response = { color: '#111111' };
     moxios.wait(() => {
-      let request = moxios.requests.mostRecent();
-      request.respondWith({
+      let req = moxios.requests.mostRecent();
+      req.respondWith({
         status: 404,
       });
       moxios.wait(() => {
-        request = moxios.requests.mostRecent();
-        request.respondWith({
+        req = moxios.requests.mostRecent();
+        req.respondWith({
           status: 200,
           response,
         });

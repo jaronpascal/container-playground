@@ -34,7 +34,7 @@ function mix(color1, color2) {
     newColor.b = 0;
   }
 
-  return `#${((1 << 24) + (newColor.r << 16) + (newColor.g << 8) + newColor.b)
+  return `#${((1 << 24) + (newColor.r << 16) + (newColor.g << 8) + newColor.b) // eslint-disable-line no-bitwise
     .toString(16)
     .slice(1)}`;
 }
