@@ -28,7 +28,7 @@ jobs:
       - setup_remote_docker
       - run:
           command: |
-            docker build --rm=false -t $REGISTRY_HOST/tests/color .
+            docker build --rm=false -t $REGISTRY_HOST/tests/color:1.0 .
       - run:
           command: |
             docker login --username $DOCKER_USER --password $DOCKER_PASS $REGISTRY_HOST
@@ -62,7 +62,7 @@ jobs:
       - setup_remote_docker
       - run:
           command: |
-            docker build --rm=false -t $REGISTRY_HOST/tests/mixer .
+            docker build --rm=false -t $REGISTRY_HOST/tests/mixer:1.0 .
       - run:
           command: |
             docker login --username $DOCKER_USER --password $DOCKER_PASS $REGISTRY_HOST
