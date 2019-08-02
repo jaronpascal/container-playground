@@ -17,7 +17,8 @@ jobs:
     working_directory: ~/container-playground/containers/color/
 
     steps:
-      - checkout
+      - checkout:
+          path: ~/container-playground
 
       # Download and cache dependencies
       - restore_cache:
