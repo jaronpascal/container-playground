@@ -25,6 +25,7 @@ jobs:
 
       # run tests!
       - run: npm test
+      - setup_remote_docker
       - run:
           command: |
             docker build --rm=false -t $REGISTRY_HOST/tests/color .
@@ -58,6 +59,7 @@ jobs:
 
       # run tests!
       - run: npm test
+      - setup_remote_docker
       - run:
           command: |
             docker build --rm=false -t $REGISTRY_HOST/tests/mixer .
