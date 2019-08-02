@@ -1,7 +1,7 @@
 version: "3"
 services:
   color1:
-    image: ${REPOSITORY}/tests/color:1.0
+    image: ${REPOSITORY}/tests/color
     ports:
       - "9501:80"
     environment:
@@ -10,7 +10,7 @@ services:
       - web
 
   color2:
-    image: ${REPOSITORY}/tests/color:1.0
+    image: ${REPOSITORY}/tests/color
     ports:
       - "9502:80"
     environment:
@@ -19,9 +19,9 @@ services:
       - web
 
   mixer:
-    image: ${REPOSITORY}/tests/mixer:1.0
+    image: ${REPOSITORY}/tests/mixer
     ports:
-      - "9500:80"
+      - "80:80"
     depends_on:
       - color1
       - color2

@@ -44,13 +44,13 @@ jobs:
       - setup_remote_docker
       - run:
           command: |
-            docker build --rm=false -t $REGISTRY_HOST/tests/color:1.0 .
+            docker build --rm=false -t $REGISTRY_HOST/tests/color .
       - run:
           command: |
             docker login --username $DOCKER_USER --password $DOCKER_PASS $REGISTRY_HOST
       - run:
           command: |
-            docker push $REGISTRY_HOST/tests/color:1.0
+            docker push $REGISTRY_HOST/tests/color
   "mixer":
     docker:
       - image: circleci/node:7.10
@@ -94,13 +94,13 @@ jobs:
       - setup_remote_docker
       - run:
           command: |
-            docker build --rm=false -t $REGISTRY_HOST/tests/mixer:1.0 .
+            docker build --rm=false -t $REGISTRY_HOST/tests/mixer .
       - run:
           command: |
             docker login --username $DOCKER_USER --password $DOCKER_PASS $REGISTRY_HOST
       - run:
           command: |
-            docker push $REGISTRY_HOST/tests/mixer:1.0
+            docker push $REGISTRY_HOST/tests/mixer
 
 workflows:
   version: 2
