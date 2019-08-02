@@ -1,0 +1,36 @@
+version: "3"
+services:
+  color1:
+    image: ${REPOSITORY}/tests/color:1.0
+    ports:
+      - "9501:80"
+    environment:
+      VERSION: "v1.0.0"
+    networks:
+      - web
+
+  color2:
+    image: ${REPOSITORY}/tests/color:1.0
+    ports:
+      - "9502:80"
+    environment:
+      VERSION: "v1.0.0"
+    networks:
+      - web
+
+  mixer:
+    image: ${REPOSITORY}/tests/mixer:1.0
+    ports:
+      - "9500:80"
+    depends_on:
+      - color1
+      - color2
+    environment:
+      COLOR_1: "http://color1"
+      COLOR_2: "http://color2"
+    networks:
+      - web
+
+networks:
+  web:
+    driver: "bridge"
