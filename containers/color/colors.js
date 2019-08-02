@@ -30,7 +30,6 @@ module.exports = class Colors {
 
   generateColor() {
     const index = Math.floor(Math.random() * this.colors.length + 1);
-    console.log(index);
     this.currentColor = this.colors[index];
   }
 };

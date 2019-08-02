@@ -4,30 +4,37 @@
     <meta charset="UTF-8" />
     <title>Colors</title>
     <style>
-    html, body
-    {
-      height: 100%;
-      width: 100%;
-      background-color: <%= color %>;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    a{
-      flex: 0 0 200px;
-      padding: 20px;
-      color: white;
-      background: #3498db;
-      text-align: center;
-      text-decoration: none;
-      font-size: 1.5em;
-      font-family: 'Open Sans', sans-serif;
-    }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Open Sans", sans-serif;
+        background-color: <%= color %>;
+      }
+      a {
+        flex: 0 0 200px;
+        padding: 20px;
+        color: white;
+        background: #3498db;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1.5em;
+      }
+      p {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        margin: 5px;
+      }
     </style>
   </head>
   <body>
     <a href="?n=1">Generate color</a>
+    <p><%= version %></p>
   </body>
 </html>

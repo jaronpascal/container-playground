@@ -1,18 +1,21 @@
-version: '3'
+version: "3"
 services:
-
   color1:
     build: ./containers/color
     ports:
       - "9501:80"
-    networks: 
+    environment:
+      VERSION: "v1.0.0"
+    networks:
       - web
 
   color2:
     build: ./containers/color
     ports:
       - "9502:80"
-    networks: 
+    environment:
+      VERSION: "v1.0.0"
+    networks:
       - web
 
   mixer:
@@ -23,11 +26,11 @@ services:
       - color1
       - color2
     environment:
-      COLOR_1: 'http://color1'
-      COLOR_2: 'http://color2'
-    networks: 
-      - web      
+      COLOR_1: "http://color1"
+      COLOR_2: "http://color2"
+    networks:
+      - web
 
 networks:
   web:
-    driver: "bridge"      
+    driver: "bridge"
