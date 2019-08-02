@@ -73,6 +73,6 @@ workflows:
   build:
     jobs:
       - "color":
-        context: container-playground
+          context: container-playground
       - "mixer":
-        context: container-playground
+          context: container-playground
