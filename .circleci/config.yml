@@ -103,14 +103,11 @@ jobs:
             docker push $REGISTRY_HOST/tests/mixer
   "webhook":
     docker:
-      - image: circleci/node:7.10
+      - image: byrnedo/alpine-curl
     steps:
       - run:
           name: Trigger docker remotely curl
-          command: curl -d "" -X POST 'https://$colorApp:QZw1cWJeTuHtJC7shbzqvtS2c9x3HJkqfTarMB8k7X2J4yxfx3jnbpqubTag@colorapp.scm.azurewebsites.net/docker/hook'
-      - run:
-          name: Trigger docker remotely wget
-          command: wget --post-data '' 'https://$colorApp:QZw1cWJeTuHtJC7shbzqvtS2c9x3HJkqfTarMB8k7X2J4yxfx3jnbpqubTag@colorapp.scm.azurewebsites.net/docker/hook'
+          command: curl -d "" -X POST 'https://\$colorApp:QZw1cWJeTuHtJC7shbzqvtS2c9x3HJkqfTarMB8k7X2J4yxfx3jnbpqubTag@colorapp.scm.azurewebsites.net/docker/hook'
 
 workflows:
   version: 2
