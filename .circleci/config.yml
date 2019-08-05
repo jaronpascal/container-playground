@@ -103,7 +103,7 @@ jobs:
             docker push $REGISTRY_HOST/tests/mixer
   "webhook":
     docker:
-      - image: alpine
+      - image: byrnedo/alpine-curl
     steps:
       - run:
           name: Trigger docker remotely curl
