@@ -39,8 +39,8 @@
     </style>
   </head>
   <body>
-    <p id="one" onclick="sendRequest(<%= color1Url %> + '/n=1')">Color 1</p>
-    <p id="two" onclick="sendRequest(<%= color2Url %> + '/n=1')">Color 2</p>
+    <p id="one" onclick="sendRequest('<%= color1Url %>' + '/n=1')">Color 1</p>
+    <p id="two" onclick="sendRequest('<%= color2Url %>' + '/n=1')">Color 2</p>
   </body>
 
   <script>
@@ -49,6 +49,7 @@
     function sendRequest(url) {
       Http.open("GET", url);
       Http.send();
+      location.reload();
     }
   </script>
 </html>
