@@ -106,8 +106,15 @@ jobs:
       - image: byrnedo/alpine-curl
     steps:
       - run:
-          name: Trigger docker remotely curl
+          name: Trigger WebApp docker-compose colorApp
           command: curl -d "" -X POST 'https://$colorApp:QZw1cWJeTuHtJC7shbzqvtS2c9x3HJkqfTarMB8k7X2J4yxfx3jnbpqubTag@colorapp.scm.azurewebsites.net/docker/hook'
+      - run:
+          name: Trigger WebApp docker-seperate colorApp
+          command: |
+             curl -d "" -X POST 'https://$colorApp-mixer:qqJkr432bhfflplyQqeAaE8wACvba5MPdZpQ8jlsL7ATKEt0C8k01WvcyX5i@colorapp-mixer.scm.azurewebsites.net/docker/hook'
+             curl -d "" -X POST 'https://$colorApp-color1:qPkwLqkp8BPkAtpLKHbnJySSlP2Qk6y0CvLPb3XgeaoxpyeExlCgHRk0e8Hi@colorapp-color1.scm.azurewebsites.net/docker/hook'
+             curl -d "" -X POST 'https://$colorApp-color2:QW1HsvzdPlamz237hjCY8P5gF5qXMbgbdp2lYpjukTXRjNbyN8zQPR5cAfuB@colorapp-color2.scm.azurewebsites.net/docker/hook'
+
 
 workflows:
   version: 2

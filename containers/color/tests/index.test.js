@@ -31,12 +31,25 @@ describe('GET /', () => {
     expect(backgroundColor1).toEqual(expect.stringMatching(/#[0-9a-f]{6}/));
   });
 
+  test('should not change color when no parameter is given', async () => {
+    let res = await request(app).get('/');
+
+    const backgroundColor1 = JSON.parse(res.text).color;
+
+    res = await request(app).get('/');
+
+    const backgroundColor2 = JSON.parse(res.text).color;
+
+    expect(res.statusCode).toEqual(200);
+    expect(backgroundColor2).toEqual(expect.stringMatching(/#[0-9a-f]{6}/));
+    expect(backgroundColor1).toEqual(backgroundColor2);
+  });
   test('should change color when parameter is given', async () => {
     let res = await request(app).get('/');
 
     const backgroundColor1 = JSON.parse(res.text).color;
 
-    res = await request(app).get('/?param=1');
+    res = await request(app).get('/?n=1');
 
     const backgroundColor2 = JSON.parse(res.text).color;
 
