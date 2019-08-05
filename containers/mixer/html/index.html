@@ -16,7 +16,7 @@
         justify-content: center;
       }
 
-      p {
+      a {
         flex: 0 0 200px;
         height: 100px;
         margin: 20px;
@@ -26,7 +26,7 @@
         font-size: 1.5em;
         font-family: "Open Sans", sans-serif;
         color: white;
-        cursor: pointer;
+        text-decoration: none;
       }
 
       #one {
@@ -39,8 +39,12 @@
     </style>
   </head>
   <body>
-    <p id="one" onclick="sendRequest('<%= color1Url %>' + '/n=1')">Color 1</p>
-    <p id="two" onclick="sendRequest('<%= color2Url %>' + '/n=1')">Color 2</p>
+    <a id="one" href="?color=1">
+      Color 1
+    </a>
+    <a id="two" href="?color=2">
+      Color 2
+    </a>
   </body>
 
   <script>
