@@ -103,11 +103,11 @@ jobs:
             docker push $REGISTRY_HOST/tests/mixer
   "webhook":
     docker:
-      - image: byrnedo/alpine-curl
+      - image: alpine
     steps:
       - run:
           name: Trigger docker remotely curl
-          command: curl -d "" -X POST 'https://\$colorApp:QZw1cWJeTuHtJC7shbzqvtS2c9x3HJkqfTarMB8k7X2J4yxfx3jnbpqubTag@colorapp.scm.azurewebsites.net/docker/hook'
+          command: curl -d "" -X POST 'https://$colorApp:QZw1cWJeTuHtJC7shbzqvtS2c9x3HJkqfTarMB8k7X2J4yxfx3jnbpqubTag@colorapp.scm.azurewebsites.net/docker/hook'
 
 workflows:
   version: 2
