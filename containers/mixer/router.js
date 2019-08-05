@@ -57,7 +57,9 @@ router.get('/', async (req, res) => {
 
   const color3 = mix(color1, color2);
 
-  res.render('index.html', { color1, color2, color3 });
+  res.render('index.html', {
+    color1, color2, color3, color1Url, color2Url,
+  });
 });
 
 module.exports = router;

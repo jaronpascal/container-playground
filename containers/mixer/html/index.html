@@ -26,6 +26,7 @@
         font-size: 1.5em;
         font-family: "Open Sans", sans-serif;
         color: white;
+        cursor: pointer;
       }
 
       #one {
@@ -38,7 +39,16 @@
     </style>
   </head>
   <body>
-    <p id="one">Color 1</p>
-    <p id="two">Color 2</p>
+    <p id="one" onclick="sendRequest(<%= color1Url %> + '/n=1')">Color 1</p>
+    <p id="two" onclick="sendRequest(<%= color2Url %> + '/n=1')">Color 2</p>
   </body>
+
+  <script>
+    const Http = new XMLHttpRequest();
+    color2Url;
+    function sendRequest(url) {
+      Http.open("GET", url);
+      Http.send();
+    }
+  </script>
 </html>
