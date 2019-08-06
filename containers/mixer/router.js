@@ -41,8 +41,12 @@ function mix(color1, color2) {
 
 // Set home page
 router.get('/', async (req, res) => {
-  if (typeof req.query.color1 !== 'undefined') await axios.get(`${color1Url}?n=1`);
-  if (typeof req.query.color2 !== 'undefined') await axios.get(`${color2Url}?n=2`);
+  if (typeof req.query.color !== 'undefined') {
+    try{
+      if (req.query.color == 1) await axios.get(`${color1Url}?n=1`);
+      if (req.query.color == 2) await axios.get(`${color2Url}?n=1`);
+    }catch (err) {}
+  }
 
   let color1;
   try {
