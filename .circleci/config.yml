@@ -44,7 +44,7 @@ jobs:
       - setup_remote_docker
       - run:
           command: |
-            docker build --rm=false -t $REGISTRY_HOST/tests/color .
+            docker build --rm=false -t $REGISTRY_HOST/tests/color:v2 .
       - run:
           command: |
             docker login --username $DOCKER_USER --password $DOCKER_PASS $REGISTRY_HOST
