@@ -50,7 +50,7 @@ jobs:
             docker login --username $DOCKER_USER --password $DOCKER_PASS $REGISTRY_HOST
       - run:
           command: |
-            docker push $REGISTRY_HOST/tests/color
+            docker push $REGISTRY_HOST/tests/color:v2
   "mixer":
     docker:
       - image: circleci/node:7.10
